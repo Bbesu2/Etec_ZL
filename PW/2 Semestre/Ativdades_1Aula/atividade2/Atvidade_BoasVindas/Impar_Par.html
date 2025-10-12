@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impar e Par</title>
+    <link rel="stylesheet" href="Impar_par.css">
+
+</head>
+<body>
+
+<div id="classe">
+             <h2>O numero é impar ou par?</h2>
+        <h4>coloque ele aqui em baixo e descubra</h4>
+    <form >
+        <input type="number" name="Numero" id="Numero">
+        <input type="button" value="Clique aqui" id="bt1">
+
+        
+    </form>
+</div>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+                const Resultado = document.createElement('p'); 
+      document.getElementById("classe").appendChild(Resultado);
+
+
+            document.getElementById("bt1").addEventListener("click",function numeros(){  
+            const num =  parseFloat(document.getElementById("Numero").value);
+
+            if(num%2==0){
+                Resultado.textContent = 'O resultado é Par';}
+    
+            else if(num%2!=0){
+                 Resultado.textContent = 'O numero é impar';
+            }
+            
+        })
+        })
+        </script>
+        
+</body>
+</html>

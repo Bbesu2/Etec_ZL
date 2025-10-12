@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Calculadora.js"></script>
+    <link rel="stylesheet" href="Calculadora.css">
+</head>
+<body>
+
+    <div id="resultado">
+        <h3>Minha calculadora</h3>
+        <form>
+            <p>Primeiro número</p>
+      <input type="number" name="n1" id="n1">
+      <p>Segundo número</p>
+      <input type="number" name="n2" id="n2">
+      <br><br>
+      <button type="button" id="Soma">Soma</button>
+      <button type="button" id="Subtracao">Subtração</button>
+      <button type="button" id="Multiplicacao">Multiplicação</button>
+      <button type="button" id="Divisao">Divisão</button>
+
+      <script>
+function valores()
+{const  numero1 = parseFloat(document.getElementById("n1").value);
+const numero2 = parseFloat(document.getElementById("n2").value);
+    return {numero1,numero2}}
+
+    document.addEventListener("DOMContentLoaded", function () {
+      
+        //criacao novo elemento <p>
+     const Resultado = document.createElement('p'); 
+            //O appendChild acrescenta ao elemento selecionado o que for declarado na sequência entre parênteses
+      document.getElementById("resultado").appendChild(Resultado);
+            //para a escrita ficar dentro da div   
+
+        document.getElementById("Soma").addEventListener("click", function (){
+        const { numero1, numero2 } =valores();
+        Resultado.textContent = "Resultado da soma: " + (numero1 + numero2);
+    });
+
+
+        document.getElementById("Subtracao").addEventListener("click", function subtracao(){
+        const { numero1, numero2 } =valores();
+                Resultado.textContent = "Resultado da subtracao: " + (numero1 - numero2);
+        });
+
+        document.getElementById("Multiplicacao").addEventListener("click", function multiplicacao(){
+        const { numero1, numero2 } =valores();
+                Resultado.textContent = "Resultado da multiplicacao: " + (numero1 * numero2);
+        });
+
+
+        document.getElementById("Divisao").addEventListener("click", function divisão(){
+        const { numero1, numero2 } =valores();
+                Resultado.textContent = "Resultado da divisao: " + (numero1 / numero2);
+        });
+});
+</script>
+        </form>
+    </div>
+    
+</body>
+</html>

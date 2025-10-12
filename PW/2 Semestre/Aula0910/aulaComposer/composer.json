@@ -1,0 +1,11 @@
+{
+    "name": "admin/aula-composer",
+    "type": "project",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Admin\\AulaComposer\\": "src/"
+        }
+    },
+    "require": {}
+}

@@ -15,7 +15,7 @@ public class Usuario extends Pessoa{
 }
 
  public void Logar(){
-         System.out.println("O(a) usuario(a) "+getNome()+" logu");
+         System.out.println("O(a) usuario(a) "+getNome()+" logou");
 }
 }
 

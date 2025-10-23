@@ -24,10 +24,19 @@ export class Produto{
       //caso der erro
       this.precoAnterior = this.preco;
       this.preco = preco;
+
+      console.log(``);
+       console.log(`Mudanca do preco do produto concluida com sucesso!!`)
+          console.log(`Valor atual do produto: ${preco} reais`);
+          console.log(``);
+
     } else {
+      console.log(``);
       console.log(`!!! valores invalidos - não foi possivel mudar o preco do produto !!!`)
           console.log(`Valor atual do produto: ${this.preco} reais`);
-    }
+      console.log(``);
+   
+        }
   }
    getPreco(){return this.preco}
 

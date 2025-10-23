@@ -36,6 +36,11 @@ public function getPrecoAnterior(){
     if($preco >= 0){
         $this->precoAnterior = $this->preco;
         $this->preco = $preco;
+                echo "</br>";
+        echo 'Mudanca do preco do produto concluida com sucesso!!';
+        echo "</br>";
+            echo "Valor atual do produto: {$preco} reais";
+            echo "</br>";
         } else {
             echo '!!! valores invalidos - não foi possivel mudar o preco do produto !!!';
             echo "</br>";

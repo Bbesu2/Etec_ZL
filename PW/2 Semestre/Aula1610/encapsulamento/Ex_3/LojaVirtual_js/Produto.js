@@ -5,9 +5,5 @@ class Produto{
     this.nome=nome;
     this.estoque=estoque;
    }
-
-   function getNome(nome) {
-        this.nome=nome;
-   }
    
 }

@@ -16,40 +16,44 @@ Class Produto{
 
 
     //Nome
-    public function getNome($nome){$this->nome=$nome;}
-    public function setNome(){return $this->nome;}
+    public function getNome(){ return $this->nome; }
+public function setNome($nome){ $this->nome = $nome; }
 
     //Comprar
-    public function getComprar($comprar){$this->comprar=$comprar;}
-    public function setComprar(){return $this->comprar;}
-
+    public function getComprar(){return $this->comprar;}
+    public function setComprar($comprar){$this->comprar=$comprar;}
+   
     //Preco
-    public function getPreco($preco){$this->preco=$preco;}
-    public function setPreco(){
-        if($this->preco>0){
-    return $this->preco;}
-    else{}}       
+    public function getPreco(){ return $this->preco; }
+     public function setPreco($preco){$this->preco=$preco;}
 
     //estoque
-    public function getEstoque($estoque){$this->estoque=$estoque;}
-    public function setEstoque(){
-        if($this->estoque>0 && $this->estoque%2===0){
-        return $this->estoque;}}
-
+    public function getEstoque(){return $this->estoque;}
+    public function setEstoque($estoque){
+    if($estoque > 0 && $estoque % 2 === 0){
+        $this->estoque = $estoque;
+    }
+}
+     
         //metodo vender
         public function Vender(){
 
-            $valor = $this->setEstoque() - $this->setComprar();
+            $estoqueAtual = $this->getEstoque();
+            $comprarEstoque = $this->getComprar();
+            $precoValidar = $this->getPreco();
+            //If else para estoque
 
-                    //Mensagem caso der certo
-               if ($this->setEstoque() - $this->setComprar()) {echo 'Venda realizada!!';}
-                    //Mensagem de erro
-                else{echo "Numero invalido";}
-            echo "</br>";
-            echo "estoque restante: {$valor}";
+            if ($comprarEstoque>= 0 && $comprarEstoque<=$estoqueAtual){
+                $estoqueAtualizado = $estoqueAtual-$comprarEstoque;
+                 $this->setEstoque($estoqueAtualizado);}
+
+            if($precoValidar>0) { echo "Venda realizada com sucesso";
+            echo "</br>";  
+            echo "estoque restante: {$this->getEstoque()}";}
+                else{echo "!!! valores invalidos !!!";
+                    echo "</br>";
+                    echo "O valor atual do produto e {$this->getPreco()}";
+                }
         }
-
-        public function Preco(){
             
-        }
 }

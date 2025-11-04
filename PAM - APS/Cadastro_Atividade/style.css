@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(250, 250, 242);
+    background-color: rgb(243, 248, 222);
 }
 
 .Fundo{
@@ -32,6 +32,11 @@ h1{
     text-align: center;
     font-family: cursive;
 }
+p{
+    text-align: center;
+    font-family: cursive;
+}
+
 
 form{
     position: relative;

@@ -10,7 +10,8 @@ class FirebaseAuthService {
         createUserWithEmailAndPassword(this.#auth, email, senha)
             .then((credencialdoUsuario) => {
                 console.log('Usuario criado com sucesso: ', credencialdoUsuario.user);
-        })
+                window.location.href = `perfil.html?email=${encodeURIComponent(email)}`;
+      })
         .catch((erro) => {
             console.error("Erro ao criar o usuario: ", erro)
         }) 

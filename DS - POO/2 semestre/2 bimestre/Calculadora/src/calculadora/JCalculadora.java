@@ -12,9 +12,18 @@ public class JCalculadora extends javax.swing.JFrame {
     
     private double res; 
     private double ent; 
-    
+    private String operador = "";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JCalculadora.class.getName());
-
+    private boolean isNumeroValido(String s) {
+    if (s == null || s.isEmpty()) return false;
+    if (s.equals("-") || s.equals(".")) return false; // apenas sinal/ponto não é número
+    try {
+        Double.parseDouble(s);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
 
     public JCalculadora() {
         initComponents();
@@ -25,7 +34,7 @@ public class JCalculadora extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -47,6 +56,7 @@ public class JCalculadora extends javax.swing.JFrame {
         butDividir = new javax.swing.JButton();
         butSubtrair = new javax.swing.JButton();
         butSoma = new javax.swing.JButton();
+        butLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
@@ -185,6 +195,17 @@ public class JCalculadora extends javax.swing.JFrame {
             }
         });
 
+        butLimpar.setBackground(new java.awt.Color(204, 0, 0));
+        butLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        butLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        butLimpar.setText("Limpar");
+        butLimpar.setToolTipText("");
+        butLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -197,7 +218,7 @@ public class JCalculadora extends javax.swing.JFrame {
                 .addGap(74, 74, 74))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(but1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,7 +254,8 @@ public class JCalculadora extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(butIgual)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(butSoma)))))
+                                .addComponent(butSoma))))
+                    .addComponent(butLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -267,7 +289,9 @@ public class JCalculadora extends javax.swing.JFrame {
                     .addComponent(butPonto)
                     .addComponent(butIgual)
                     .addComponent(butSoma))
-                .addGap(38, 38, 38))
+                .addGap(5, 5, 5)
+                .addComponent(butLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -288,119 +312,137 @@ public class JCalculadora extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void but1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but1ActionPerformed
+    private void but1ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "1"); 
-    }//GEN-LAST:event_but1ActionPerformed
+    }                                    
 
-    private void but2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but2ActionPerformed
+    private void but2ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "2"); 
-    }//GEN-LAST:event_but2ActionPerformed
+    }                                    
 
-    private void but3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but3ActionPerformed
+    private void but3ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "3"); 
-    }//GEN-LAST:event_but3ActionPerformed
+    }                                    
 
-    private void but4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but4ActionPerformed
+    private void but4ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "4");
-    }//GEN-LAST:event_but4ActionPerformed
+    }                                    
 
-    private void but5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but5ActionPerformed
+    private void but5ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "5");
-    }//GEN-LAST:event_but5ActionPerformed
+    }                                    
 
-    private void but6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but6ActionPerformed
+    private void but6ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "6"); 
-    }//GEN-LAST:event_but6ActionPerformed
+    }                                    
 
-    private void but7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but7ActionPerformed
+    private void but7ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "7"); 
-    }//GEN-LAST:event_but7ActionPerformed
+    }                                    
 
-    private void but8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but8ActionPerformed
+    private void but8ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "8"); 
-    }//GEN-LAST:event_but8ActionPerformed
+    }                                    
 
-    private void but9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but9ActionPerformed
+    private void but9ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         entrada.setText(temp + "9"); 
-    }//GEN-LAST:event_but9ActionPerformed
+    }                                    
 
-    private void but0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but0ActionPerformed
+    private void but0ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         String temp = entrada.getText();
         if (!temp.isEmpty()) {
         entrada.setText(temp + "0");
         }
-    }//GEN-LAST:event_but0ActionPerformed
+    }                                    
 
-    private void butPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPontoActionPerformed
+    private void butPontoActionPerformed(java.awt.event.ActionEvent evt) {                                         
+   String temp = entrada.getText();
+    if (temp.isEmpty()) entrada.setText("0.");
+    else if (!temp.contains(".")) entrada.setText(temp + ".");
+    }                                        
+
+    private void butSomaActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    String temp = entrada.getText();
+    if (isNumeroValido(temp)) {
+        res = Double.parseDouble(temp);
+    }
+    operador = "+";
+    entrada.setText("");
+    }                                       
+
+    private void butSubtrairActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    String temp = entrada.getText();
+    if (isNumeroValido(temp)) {
+        res = Double.parseDouble(temp);
+    }
+    operador = "-";
+    entrada.setText("");
+    }                                           
+
+    private void butMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    String temp = entrada.getText();
+    if (isNumeroValido(temp)) {
+        res = Double.parseDouble(temp);
+    }
+    operador = "*";
+    entrada.setText("");
+    }                                              
+
+    private void butDividirActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    String temp = entrada.getText();
+    if (isNumeroValido(temp)) {
+        res = Double.parseDouble(temp);
+    }
+    operador = "/";
+    entrada.setText("");
+    }                                          
+
+    private void butIgualActionPerformed(java.awt.event.ActionEvent evt) {                                         
+try {
         String temp = entrada.getText();
-        if (temp.isEmpty()) {
-        entrada.setText("."); 
-        } else if (!temp.contains(".")) {
-        entrada.setText(temp + "."); 
+        if (isNumeroValido(temp)) {
+            ent = Double.parseDouble(temp);
+            switch (operador) {
+                case "+" -> res = res + ent;
+                case "-" -> res = res - ent;
+                case "*" -> res = res * ent;
+                case "/" -> {
+                    if (ent != 0) {
+                        res = res / ent;
+                    } else {
+                        resultado.setText("Erro!");
+                        res = 0;
+                    }
+                }
+                default -> res = ent;
+            }
+            entrada.setText("");
+            resultado.setText(Double.toString(res));
         }
-    }//GEN-LAST:event_butPontoActionPerformed
+    } catch (NumberFormatException e) {
+        resultado.setText("Erro!");
+    }
+    }                                        
 
-    private void butSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSomaActionPerformed
-        try {
-ent = Double.parseDouble(entrada.getText());
-res = res + ent;
-entrada.setText("");
-resultado.setText(Double.toString(res));
-} catch (NumberFormatException e) {
-}
-    }//GEN-LAST:event_butSomaActionPerformed
-
-    private void butSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSubtrairActionPerformed
-        try {
-ent = Double.parseDouble(entrada.getText());
-res = res - ent;
-entrada.setText("");
-resultado.setText(Double.toString(res));
-} catch (NumberFormatException e) {
-}
-    }//GEN-LAST:event_butSubtrairActionPerformed
-
-    private void butMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butMultiplicarActionPerformed
-        try {
-ent = Double.parseDouble(entrada.getText());
-res = res * ent;
-entrada.setText("");
-resultado.setText(Double.toString(res));
-} catch (NumberFormatException e) {
-}
-    }//GEN-LAST:event_butMultiplicarActionPerformed
-
-    private void butDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDividirActionPerformed
-        try {
-ent = Double.parseDouble(entrada.getText());
-if (ent != 0) { res = res / ent; } else {
-resultado.setText("Erro!"); res = 0; }
-entrada.setText("");
-resultado.setText(Double.toString(res));
-} catch (NumberFormatException e) {
-}
-    }//GEN-LAST:event_butDividirActionPerformed
-
-    private void butIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butIgualActionPerformed
-        try {
-ent = Double.parseDouble(entrada.getText());
-res = ent;
-entrada.setText("");
-resultado.setText(Double.toString(res));
-} catch (NumberFormatException e) {
-}
-    }//GEN-LAST:event_butIgualActionPerformed
+    private void butLimparActionPerformed(java.awt.event.ActionEvent evt) {                                          
+                                       
+    res = 0;
+    ent = 0;
+    operador = "";
+    entrada.setText("");
+    resultado.setText("0");
+    }                                         
 
     /**
      * @param args the command line arguments
@@ -427,7 +469,7 @@ resultado.setText(Double.toString(res));
         java.awt.EventQueue.invokeLater(() -> new JCalculadora().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton but0;
     private javax.swing.JButton but1;
     private javax.swing.JButton but2;
@@ -440,6 +482,7 @@ resultado.setText(Double.toString(res));
     private javax.swing.JButton but9;
     private javax.swing.JButton butDividir;
     private javax.swing.JButton butIgual;
+    private javax.swing.JButton butLimpar;
     private javax.swing.JButton butMultiplicar;
     private javax.swing.JButton butPonto;
     private javax.swing.JButton butSoma;
@@ -447,5 +490,5 @@ resultado.setText(Double.toString(res));
     private javax.swing.JLabel entrada;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel resultado;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
